@@ -1,0 +1,131 @@
+.lazySlider {
+	width:100%;
+	height:100%;
+	overflow: hidden;
+	position:relative;
+}
+.lazySlide{
+	position:absolute;
+    overflow:hidden;
+	width:100%;
+	height:100%;
+    left:0;
+    background-position:center center;
+    background-repeat:no-repeat;
+    background-size: cover;
+    z-index:10;
+}
+.lazySlide.right{
+    left:100%;
+    z-index:5;
+}
+.lazySlide.left{
+    left:-100%;
+    z-index:5;
+}
+
+.lazySlideContent{
+    position:relative;
+    overflow:hidden;
+    margin:0 auto;
+    width: 100%;
+    height:100%;
+    max-width: 1620px;
+    padding: 10px 60px;
+    box-sizing:border-box;
+    opacity: 1;
+    top: 0%;
+    left:0;
+    transition: opacity 1s, top 1s, left 1s;
+}
+
+.lazySlide.right .lazySlideContent.fade-left,
+.lazySlide.left .lazySlideContent.fade-right{
+    opacity:0;
+    left:-75%;
+    transition: opacity 0s, top 0s;
+}
+
+.lazySlide.right .lazySlideContent.fade-right,
+.lazySlide.left .lazySlideContent.fade-left{
+    opacity:0;
+    left:75%;
+    transition: opacity 0s, top 0s;
+}
+.lazySlide.right .lazySlideContent.fade-up,
+.lazySlide.left .lazySlideContent.fade-up{
+    opacity:0;
+    top:50%;
+    transition: opacity 0s, top 0s;
+}
+.lazySlide.right .lazySlideContent.fade-down,
+.lazySlide.left .lazySlideContent.fade-down{
+    opacity:0;
+    top:-50%;
+    transition: opacity 0s, top 0s;
+}
+
+
+.next-lazySlide.default-next,
+.prev-lazySlide.default-prev {
+	position:absolute;
+	background: #fff;
+    font-size: 52px;
+    line-height: 48px;
+	height: 50px;
+	width: 45px;
+    border-radius: 50%;
+    top:50%;
+	margin-top:-25px;
+    color:#002842;
+	opacity: .1;
+    cursor:pointer;
+    transition: opacity .5s, transform .5s;
+    z-index:15;
+}
+
+.next-lazySlide.default-next {
+	right:10px;
+    padding-left: 5px;
+}
+.prev-lazySlide.default-prev
+{
+    left: 10px;
+    padding-right: 5px;
+}
+.lazySlider:hover .prev-lazySlide.default-prev,
+.lazySlider:hover .next-lazySlide.default-next
+{
+    opacity: .3;
+}
+.lazySlider:hover .prev-lazySlide.default-prev:hover,
+.lazySlider:hover .next-lazySlide.default-next:hover
+{
+    opacity: .5;
+    -ms-transform: scale(1.05);
+    -webkit-transform: scale(1.05);
+    -moz-transform: scale(1.05);
+    transform: scale(1.05);
+}
+.lazySlider:hover .prev-lazySlide.default-prev:active,
+.lazySlider:hover .next-lazySlide.default-next:active
+{
+    opacity: .7;
+    -ms-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    transform: scale(1.1);
+}
+.lazySlider:hover .prev-lazySlide.default-prev.disabled,
+.lazySlider:hover .next-lazySlide.default-next.disabled,
+.lazySlider:hover .prev-lazySlide.default-prev:active.disabled,
+.lazySlider:hover .next-lazySlide.default-next:active.disabled,
+.lazySlider:hover .prev-lazySlide.default-prev:hover.disabled,
+.lazySlider:hover .next-lazySlide.default-next:hover.disabled
+{
+    opacity: .1;
+    -ms-transform: scale(1);
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    transform: scale(1);
+}
